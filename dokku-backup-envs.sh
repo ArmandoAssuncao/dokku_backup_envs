@@ -1,4 +1,5 @@
 #!/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 aws_region=${AWS_REGION:-us-east-1}
 bucket_name=${BUCKET_NAME}
