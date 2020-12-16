@@ -6,6 +6,11 @@ hostname=$HOSTNAME
 dokku_dir='/home/dokku'
 app_names=`ls $dokku_dir`
 
+if [ -z "$bucket_name" ]; then
+  echo "env BUCKET_NAME cannot be blank"
+  exit 1
+fi
+
 for entry in $app_names
 do
   env_file=$dokku_dir/$entry/ENV
