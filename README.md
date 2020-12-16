@@ -35,6 +35,7 @@ the files are saves in the structure:
 ```
 20201230_2359/
   hostname/
+    ENV <- global ENV
     appname1/
       ENV
     appname2/

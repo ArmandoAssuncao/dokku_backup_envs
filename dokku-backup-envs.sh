@@ -19,10 +19,16 @@ awscli=`which aws`
 
 for entry in $app_names
 do
-  env_file=$dokku_dir/$entry/ENV
+  if [ $entry = 'ENV' ]; then
+    env_file=$dokku_dir/ENV # global ENV
+    env_file_s3=ENV
+  else
+    env_file=$dokku_dir/$entry/ENV
+    env_file_s3=$entry/ENV
+  fi
 
   if [ -f "$env_file" ]; then
-    AWS_REGION=$aws_region $awscli s3 cp $env_file s3://$bucket_name/$folder_date/$hostname/$entry/ENV
+    AWS_REGION=$aws_region $awscli s3 cp $env_file s3://$bucket_name/$folder_date/$hostname/$env_file_s3
   fi
 done
 
