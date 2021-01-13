@@ -9,6 +9,11 @@ Backup the envs of Dokku apps
 ## Usage
 
 ```sh
+# In machine running dokku, download the script:
+wget https://raw.githubusercontent.com/ArmandoAssuncao/dokku_backup_envs/master/dokku-backup-envs.sh
+```
+
+```sh
 # make script executable
 chmod +x ./dokku-backup-envs.sh
 ```
