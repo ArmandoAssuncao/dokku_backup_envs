@@ -38,4 +38,8 @@ do
   fi
 done
 
-echo "OK!"
+if [ "$?" -eq "0" ]; then
+  echo "The backup finished successfully."
+else
+  echo "TheBackup has failed."
+fi
