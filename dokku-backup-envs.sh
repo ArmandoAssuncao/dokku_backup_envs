@@ -34,7 +34,11 @@ do
   fi
 
   if [ -f "$env_file" ]; then
-    AWS_REGION=$aws_region $awscli s3 cp "$env_file" "s3://$bucket_name/$folder_date/$host_name/$env_file_s3"
+    if [ -n "$ENCRYPTION_KEY" ]; then
+      gpg --batch --no-tty -q -c -o - --passphrase "$ENCRYPTION_KEY" "$env_file" | AWS_REGION=$aws_region $awscli s3 cp - "s3://$bucket_name/$folder_date/$host_name/$env_file_s3.gpg"
+    else
+      AWS_REGION=$aws_region $awscli s3 cp "$env_file" "s3://$bucket_name/$folder_date/$host_name/$env_file_s3"
+    fi
   fi
 done
 
