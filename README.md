@@ -28,6 +28,14 @@ Or use (AWS_REGION is optional, default: us-east-1):
 BUCKET_NAME="your-bucket" AWS_ACCESS_KEY_ID="key_id" AWS_SECRET_ACCESS_KEY="secret" AWS_REGION="us-east-1" ./dokku-backup-envs.sh
 ```
 
+### Encryption
+
+You can optionally encrypt your backup using GnuPG. To do so, set env `ENCRYPTION_KEY`.
+
+`ENCRYPTION_KEY="your_secret_passphrase" ./dokku-backup-envs.sh`
+
+> To decrypt file: `gpg --no-tty --batch -q --passphrase $ENCRYPTION_KEY -o output_file -d input_file`
+
 ### Add in Crontab
 
 ```sh
