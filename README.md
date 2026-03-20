@@ -39,7 +39,7 @@ You can optionally encrypt your backup using GnuPG. To do so, set env `ENCRYPTIO
 ### Add in Crontab
 
 ```sh
-0 */12 * * * BUCKET_NAME="bucket-name" AWS_ACCESS_KEY_ID="key_id" AWS_SECRET_ACCESS_KEY="secret" AWS_REGION=us-east-1 /bin/sh /root/scripts/dokku-backup-envs.sh
+0 */12 * * * BUCKET_NAME="bucket-name" AWS_ACCESS_KEY_ID="key_id" AWS_SECRET_ACCESS_KEY="secret" AWS_REGION=us-east-1 /bin/sh ~/scripts/dokku-backup-envs.sh
 ```
 
 ## Structure
